@@ -8,7 +8,7 @@ import base64
 # Page configuration
 st.set_page_config(
     page_title="Insight",
-    page_icon=r"C:\Users\hp\OneDrive\Desktop\movie_info_project\app\CLAP.avif",  # Using an emoji for cross-platform compatibility
+    page_icon="app/CLAP.avif",  # Using an emoji for cross-platform compatibility
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -26,7 +26,7 @@ def get_base64_image(image_path):
 
 # Path to the background image
 # NOTE: The path is now passed to the function, and the function handles the file opening.
-background_image_path = r"C:\Users\hp\OneDrive\Desktop\movie_info_project\app\movie_template.jpg"
+background_image_path ="app/movie_template.jpg"
 b64_string = get_base64_image(background_image_path)
 
 # Custom CSS with background image and liquid design
@@ -239,10 +239,10 @@ if b64_string:
 @st.cache_resource
 def load_model_and_data():
     try:
-        with open(r'C:\Users\hp\OneDrive\Desktop\movie_info_project\app\model.pkl', 'rb') as file:
+        with open("model.pkl", 'rb') as file:
             model = pickle.load(file)
         
-        df = pd.read_csv(r'C:\Users\hp\OneDrive\Desktop\movie_info_project\data\movies_cleaned.csv')
+        df = pd.read_csv("data/movies_cleaned.csv")
         
         encoders = {}
         for col in ["genre", "director", "writer", "star"]:
